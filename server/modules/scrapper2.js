@@ -15,9 +15,10 @@ const scrapper = async (urls) => {
     ],
   });
 
+  const page = await browser.newPage();
+
   await Promise.all(urls.map(async (url) => {
   
-    const page = await browser.newPage();
     await page.setViewport({ width: 1920, height: 926 });
     await page.setRequestInterception(true);
     
@@ -78,10 +79,10 @@ const scrapper = async (urls) => {
     // Map response to dictionary
     dict[url] = response;
 
-    // Close page and browser
-    await page.close();
   }));
 
+  // Close page and browser
+  await page.close();
   await browser.close();
  
   Object.keys(dict).forEach((k) => ( data.push(dict[k])));
