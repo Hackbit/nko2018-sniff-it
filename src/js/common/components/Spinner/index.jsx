@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 
-import './LazyLoading.css'
+import { SpinnerStyled } from './styles';
 
-class LazyLoading extends PureComponent {
+class Spinner extends PureComponent {
   getMessage() {
     const {
       isLoading,
@@ -10,7 +10,6 @@ class LazyLoading extends PureComponent {
       pastDelay,
       error,
     } = this.props;
-
     const errorMessage = 'We can&apos;t pull up information at this point, please try again.'
 
     if (isLoading) {
@@ -23,13 +22,16 @@ class LazyLoading extends PureComponent {
     } else if (error) {
       return <div>{errorMessage}</div>;
     }
-
     return null;
   }
 
   render() {
-    return this.getMessage()
+    return (
+      <SpinnerStyled>
+        {this.getMessage()}
+      </SpinnerStyled>
+    );
   }
 }
 
-export default LazyLoading;
+export default Spinner;
