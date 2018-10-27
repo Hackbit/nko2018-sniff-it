@@ -9,7 +9,6 @@ const scrapper = async (urls) => {
 
   await Promise.all(urls.map(async (url) => {
     const browser = await puppeteer.launch({
-      headless: true,
       args: [
         '--no-sandbox', 
         '--disable-setuid-sandbox'
