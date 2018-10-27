@@ -9,6 +9,7 @@ const scrapper = async (urls) => {
 
   await Promise.all(urls.map(async (url) => {
     const browser = await puppeteer.launch({
+      executablePath: process.env.CHROME_EXECUTABLE_PATH,
       args: [
         '--no-sandbox',
       ],
