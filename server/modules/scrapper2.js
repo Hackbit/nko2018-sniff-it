@@ -9,30 +9,29 @@ const scrapper = async (urls) => {
 
 
   const browser = await puppeteer.launch({
-    executablePath: process.env.CHROME_EXECUTABLE_PATH,
+    // executablePath: process.env.CHROME_EXECUTABLE_PATH,
     args: [
       '--no-sandbox',
     ],
   });
 
-  const page = await browser.newPage();
-
   await Promise.all(urls.map(async (url) => {
   
+    const page = await browser.newPage();
     await page.setViewport({ width: 1920, height: 926 });
     await page.setRequestInterception(true);
     
     // Disabling assets
-    page.on('request', (req) => {
-      if(req.resourceType() == 'stylesheet' || 
-          req.resourceType() == 'font' || 
-          req.resourceType() == 'image') {
-        req.abort();
-      }
-      else {
-        req.continue();
-      }
-    });
+    // page.on('request', (req) => {
+    //   if(req.resourceType() == 'stylesheet' || 
+    //       req.resourceType() == 'font' || 
+    //       req.resourceType() == 'image') {
+    //     req.abort();
+    //   }
+    //   else {
+    //     req.continue();
+    //   }
+    // });
 
     await page.goto(url);
     
@@ -79,10 +78,10 @@ const scrapper = async (urls) => {
     // Map response to dictionary
     dict[url] = response;
 
+    // Close page and browser
+    await page.close();
   }));
 
-  // Close page and browser
-  await page.close();
   await browser.close();
  
   Object.keys(dict).forEach((k) => ( data.push(dict[k])));
