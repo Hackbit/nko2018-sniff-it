@@ -1,4 +1,7 @@
 {
   "env": "release",
-  "publicPath": "./"
+  "publicPath": "./",
+  "app": {
+    "logLevel": "warn"
+  }
 }

@@ -1,4 +1,7 @@
 {
   "env": "production",
-  "publicPath": "/"
+  "publicPath": "/",
+  "app": {
+    "logLevel": "warn"
+  }
 }

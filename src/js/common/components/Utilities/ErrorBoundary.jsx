@@ -17,9 +17,7 @@ class ErrorBoundary extends Component {
       hasError: false,
     };
   }
-  componentDidCatch(error, info) {
-    // you probably want to log it somewhere
-    console.log(error, info);
+  componentDidCatch() {
     this.setState({
       hasError: true,
     });
@@ -28,11 +26,10 @@ class ErrorBoundary extends Component {
     if (this.state.hasError) {
       return (
         <div style={style}>
-          Something is going wrong!! This error is caught by ErrorBoundary feature in React 16 \o/
+          We are sorry, but something sent wrong.
         </div>
       );
     }
-
     return this.props.children;
   }
 }
