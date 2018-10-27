@@ -80,9 +80,10 @@ const scrapper = async (urls) => {
 
     // Close page and browser
     await page.close();
-    await browser.close();
   }));
-  
+
+  await browser.close();
+ 
   Object.keys(dict).forEach((k) => ( data.push(dict[k])));
 
   return data;
