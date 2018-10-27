@@ -8,9 +8,11 @@ class SearchBox extends PureComponent {
     return (
       <Fragment>
         <SearchBoxStyled>
-          <article>
-            &nbsp;
-          </article>
+          <article>&nbsp;</article>
+          <section>
+            <input type="text" />
+            <button type="button">Search</button>
+          </section>
         </SearchBoxStyled>
         <GlobalStyle />
       </Fragment>
