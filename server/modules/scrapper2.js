@@ -22,16 +22,16 @@ const scrapper = async (urls) => {
     await page.setRequestInterception(true);
     
     // Disabling assets
-    // page.on('request', (req) => {
-    //   if(req.resourceType() == 'stylesheet' || 
-    //       req.resourceType() == 'font' || 
-    //       req.resourceType() == 'image') {
-    //     req.abort();
-    //   }
-    //   else {
-    //     req.continue();
-    //   }
-    // });
+    page.on('request', (req) => {
+      if(req.resourceType() == 'stylesheet' || 
+          req.resourceType() == 'font' || 
+          req.resourceType() == 'image') {
+        req.abort();
+      }
+      else {
+        req.continue();
+      }
+    });
 
     await page.goto(url);
     
