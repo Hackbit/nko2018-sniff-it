@@ -1,20 +1,20 @@
 const puppeteer = require('puppeteer');
 
 const scrapper = async (urls) => {
+  // Create mapping for urls
   const data = [];
   let dict = {};
+ 
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: [
+      '--no-sandbox',
+    ],
+  });
 
-  // Create mapping for urls
   urls.forEach((i) => Object.assign(dict, { [i] : null }));
 
   await Promise.all(urls.map(async (url) => {
-    const browser = await puppeteer.launch({
-      headless: true,
-      args: [
-        '--no-sandbox',
-      ],
-    });
-    
     const page = await browser.newPage();
     await page.setViewport({ width: 1920, height: 926 });
     await page.setRequestInterception(true);
