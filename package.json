@@ -9,6 +9,7 @@
     "clean": "rimraf docroot",
     "test": "jest --no-cache",
     "lint": "node bin/commands.js lint",
+    "server": "node ./server/bin/www",
     "heroku-postbuild": "npm run build"
   },
   "repository": {
@@ -94,6 +95,7 @@
     "lodash": "^4.17.11",
     "morgan": "~1.9.0",
     "prop-types": "^15.6.0",
+    "puppeteer": "^1.9.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",
