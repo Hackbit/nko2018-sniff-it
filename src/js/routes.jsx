@@ -4,28 +4,22 @@ import {
   Switch,
   withRouter,
 } from 'react-router-dom';
-import { Header } from './common/components/Header';
-import ExampleRouteHandler from './views/example';
+import Header from './common/components/Header';
+import HomeRouteHandler from './views/home';
+import ErrorBoundary from './common/components/Utilities/ErrorBoundary';
 
-const JustAnotherPage = () => (
-  <div>
-    <h2>This is Just Another Page</h2>
-    <p>Please remove this from your route, it is just to show case basic setup for router.</p>
-  </div>
-);
-
-const HeaderWithRouter = withRouter(props => <Header {...props} />);
+const HeaderWithRouter = withRouter(Header);
 
 module.exports = (
   <div className="container">
-    <HeaderWithRouter />
-    <hr />
-    <div className="container__content">
-      <Switch>
-        <Route exact path="/" component={ExampleRouteHandler} />
-        <Route path="/page" component={JustAnotherPage} />
-        <Route path="*" component={ExampleRouteHandler} />
-      </Switch>
-    </div>
+    <ErrorBoundary>
+      <HeaderWithRouter />
+      <div>
+        <Switch>
+          <Route exact path="/" component={HomeRouteHandler} />
+          <Route path="*" component={HomeRouteHandler} />
+        </Switch>
+      </div>
+    </ErrorBoundary>
   </div>
 );
