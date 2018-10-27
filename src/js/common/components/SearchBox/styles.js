@@ -32,14 +32,14 @@ export const SearchBoxStyled = styled.div`
     justify-content: center;
     z-index: 2;
     input {
-      height: 36px;
-      width: 340px;
+      height: 50px;
+      width: 480px;
       border: 0 none;
       border-radius: 31px;
       margin-top: 239px;
-      padding: 5px 120px 5px 20px;
-      color: #211436;
-      font-size: 18px;
+      padding: 5px 98px 5px 20px;
+      color: #827B8E;
+      font-size: 15px;
       line-height: 28px;
     }
     button {
@@ -53,7 +53,7 @@ export const SearchBoxStyled = styled.div`
       font-size: 13px;
       line-height: 22px;
       position: absolute;
-      margin: 244px 0px 0 191px;
+      margin: 246px 0px 0 190px;
     }
   }
 `;
