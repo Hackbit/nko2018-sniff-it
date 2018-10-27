@@ -6,6 +6,10 @@ const router = express.Router();
 
 const API_KEY = '616fa7cc408843cdaee31d0f78fa3a18';
 const BING_SEARCH_API_URL = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
+const PUPPETEER_SERVICE = 'http://localhost:3001/puppeteer-service';
+
+// http://localhost:3001/puppeteer-service
+// http://128.199.163.48:30001/puppeteer-service
 
 /* GET users listing. */
 router.get('/', async (req, res, next) => {
@@ -27,7 +31,9 @@ router.get('/', async (req, res, next) => {
   const urls = response.data.webPages.value.map(((v) => v.url));
 
   try {
-    const data = await scrapper(urls);
+    const data = await axios.post(PUPPETEER_SERVICE, {
+      urls,
+    });
 
     res.status(200);
     res.send({

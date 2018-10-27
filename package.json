@@ -10,6 +10,7 @@
     "test": "jest --no-cache",
     "lint": "node bin/commands.js lint",
     "server": "node ./server/bin/www",
+    "puppeteer-server": "node ./puppeteer.service/bin/www",
     "heroku-postbuild": "npm run build"
   },
   "repository": {
