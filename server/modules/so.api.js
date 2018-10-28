@@ -11,7 +11,7 @@ const getAnswers = async (ids) => {
     `${SO_HOST}/questions/${delimitedIds}/answers?pagesize=70&order=desc&sort=activity&site=stackoverflow&filter=!9Z(-wzfpy`;
   const mapping = [];
   
-  ids.forEach((i) => mapping.push({ key: i }));
+  ids.forEach((i) => mapping.push({ key: i, points: null, code: null, tags: null }));
 
   const response = await axios.get(ANSWERS_URL);
 
@@ -31,9 +31,6 @@ const getAnswers = async (ids) => {
 
   console.log(mapping);
 
-  // console.log(mapping);
-
-  // Object.keys(mapping).forEach((k) => ( data.push(mapping[k])));
   return mapping;
 };
 

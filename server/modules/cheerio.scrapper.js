@@ -1,9 +1,14 @@
 const cheerio = require('cheerio');
 
 const getCodes = (markup) => {
+  const codes = [];
+
+  if (!markup) {
+    return codes;
+  }
+
   const $ = cheerio.load(markup);
   const $selectors = $('pre code').toArray();
-  const codes = [];
   
   $selectors.forEach((code) => {
     code.children.forEach((c) => {
