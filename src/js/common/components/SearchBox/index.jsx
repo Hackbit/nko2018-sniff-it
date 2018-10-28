@@ -39,7 +39,7 @@ class SearchBox extends PureComponent {
         <SearchBoxStyled>
           <article>&nbsp;</article>
           <section>
-            <input type="text" ref={this.searchText} onKeyPress={this.onKeyPress} />
+            <input type="text" ref={this.searchText} onKeyPress={this.onKeyPress} placeholder="String concatenation" />
             <button type="button" onClick={this.redirect}>Search</button>
             <p>What problem are you trying to solve today?</p>
           </section>
