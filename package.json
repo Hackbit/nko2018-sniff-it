@@ -109,6 +109,7 @@
     "redux-actions": "^2.3.0",
     "redux-saga": "^0.16.0",
     "reselect": "^3.0.1",
+    "scrape-it": "^5.1.0",
     "serve-favicon": "~2.4.5",
     "styled-components": "^4.0.2",
     "winston": "^3.1.0"
