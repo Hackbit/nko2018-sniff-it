@@ -38,7 +38,7 @@ export const SearchBoxStyled = styled.div`
       font-size: 18px;
     }
     input {
-      height: 50px;
+      min-height: 50px;
       width: 480px;
       border: 0 none;
       border-radius: 31px;

@@ -8,6 +8,11 @@ const resultSelector = createSelector(
   (payload) => payload.get('result').toJSON()
 );
 
+export const loadingSelector = createSelector(
+  searchDataSelector,
+  (payload) => payload.get('isLoading')
+);
+
 export const filteredResultSelector = createSelector(
   resultSelector,
   (result) => {

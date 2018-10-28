@@ -9,7 +9,7 @@ export const ResultListStyled = styled.div`
     h2 {
       color: #FFFFFF;
       opacity: 0.8;
-      width: 640px;
+      width: 686px;
     }
     ul {
       list-style: none;
