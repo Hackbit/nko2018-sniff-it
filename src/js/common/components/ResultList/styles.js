@@ -42,6 +42,13 @@ export const BarStyled = styled.div`
       font-size: 10px;
       font-weight: bold;
     }
+    .copy {
+      cursor: pointer;
+      color: #9e9ea0;
+    }
+    .copy:hover {
+      color: #fff;
+    }
   }
 `;
 
