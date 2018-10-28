@@ -11,6 +11,7 @@ const res = async (url) => {
 module.exports = (urls) => {
   return Promise.all(urls.map((url) => {
     return res(url).then((response) => {
+      console.log(response)
       return response.data;
     });
   }));
