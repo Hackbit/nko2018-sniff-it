@@ -3,6 +3,6 @@
   "publicPath": "/",
   "app": {
     "logLevel": "warn",
-    "apiUrl": "http://sniff-it.herokuapp.com/api"
+    "apiUrl": "//sniff-it.herokuapp.com/api"
   }
 }
