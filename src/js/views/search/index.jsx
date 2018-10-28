@@ -11,7 +11,7 @@ import { getResultAction } from '../../redux/modules/search';
 require('../../../style/index.css');
 
 const LoadableComponent = Loadable({
-  loader: () => import('../../common/components/SearchBox'),
+  loader: () => import('../../common/components/ResultList'),
   loading: Spinner,
 })
 
@@ -23,7 +23,7 @@ function mapDispatchToProps(dispatch) {
   }, dispatch);
 }
 
-class HomeView extends Component {
+class SearchView extends Component {
   componentDidMount() {
     this.props.getResult();
   }
@@ -37,10 +37,10 @@ class HomeView extends Component {
   }
 }
 
-HomeView.propTypes = {
+SearchView.propTypes = {
   getResult: PropTypes.func.isRequired,
 };
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-export default compose(withConnect)(HomeView);
+export default compose(withConnect)(SearchView);

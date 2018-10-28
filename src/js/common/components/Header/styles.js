@@ -1,15 +1,23 @@
 import styled from 'styled-components';
 
-import logoUrl from '../../../../assets/images/logo_nobg.png';
+import homeLogoUrl from '../../../../assets/images/logo_nobg.png';
+import logoUrl from '../../../../assets/images/logo_bg.png';
 
 export const HeaderStyled = styled.header`
   border-bottom: 1px solid #7B7289;
-  padding: 15px 60px;
-
-  aside {
+  display: flex;
+  a {
+    display: block;
     background: url(${logoUrl}) no-repeat right top;
     background-size: cover;
-    width: 72px;
-    height: 30px;
+    width: 199px;
+    height: 66px;
+  }
+  a.home {
+    background: url(${homeLogoUrl}) no-repeat right top;
+    background-size: cover;
+    width: 78px;
+    height: 31px;
+    margin: 18px 52px;
   }
 `;
