@@ -9,8 +9,7 @@
     "clean": "rimraf docroot",
     "test": "jest --no-cache",
     "lint": "node bin/commands.js lint",
-    "server": "node ./server/bin/www",
-    "puppeteer-server": "node ./puppeteer.service/bin/www",
+    "server": "./node_modules/nodemon/bin/nodemon.js ./server/bin/www",
     "heroku-postbuild": "npm run build"
   },
   "repository": {
@@ -68,6 +67,7 @@
     "identity-obj-proxy": "^3.0.0",
     "image-webpack-loader": "^3.4.2",
     "jest-cli": "^22.1.3",
+    "nodemon": "^1.18.5",
     "postcss-cssnext": "^3.0.2",
     "postcss-loader": "^2.0.10",
     "precss": "^2.0.0",
@@ -87,6 +87,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "~1.18.2",
+    "cheerio": "^1.0.0-rc.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "^4.16.4",
