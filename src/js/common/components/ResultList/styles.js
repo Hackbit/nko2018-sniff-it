@@ -61,3 +61,11 @@ export const SyntaxStyled = styled(Syntax)`
   overflow-x: scroll;
   width: 640px;
 `;
+
+export const ShowMoreStyled = styled.a`
+  color: #FFFFFF;
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+`;
