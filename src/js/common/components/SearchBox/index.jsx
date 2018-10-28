@@ -22,7 +22,7 @@ class SearchBox extends PureComponent {
     }
   }
 
-  redirect() {
+  redirect = () => {
     const { history } = this.props;
     const searchKey = this.searchText.current.value;
 
