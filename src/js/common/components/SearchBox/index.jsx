@@ -9,11 +9,13 @@ class SearchBox extends PureComponent {
         <SearchBoxStyled>
           <article>&nbsp;</article>
           <section>
-            <input type="text" placeholder="What problem are you trying to solve today?" />
+            <input type="text" />
             <button type="button">Search</button>
+            <p>What problem are you trying to solve today?</p>
           </section>
         </SearchBoxStyled>
         <GlobalStyle />
+        
       </Fragment>
     );
   }

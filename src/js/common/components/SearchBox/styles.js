@@ -19,7 +19,7 @@ export const SearchBoxStyled = styled.div`
     background: url(${boxBgUrl}) no-repeat center 115px;
     background-size: 552px;
     position: absolute;
-    height: 100vh;
+    height: 90vh;
     width: 100%;
     opacity: 0.2;
   }
@@ -27,10 +27,16 @@ export const SearchBoxStyled = styled.div`
     background: url(${searchUrl}) no-repeat center 90px;
     background-size: 116px;
     position: relative;
-    height: 100vh;
+    height: 50vh;
     display: flex;
-    justify-content: center;
+    align-items: center;
     z-index: 2;
+    flex-direction: column;
+    p {
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+    }
     input {
       height: 50px;
       width: 480px;
@@ -54,6 +60,7 @@ export const SearchBoxStyled = styled.div`
       line-height: 22px;
       position: absolute;
       margin: 246px 0px 0 190px;
+      cursor: pointer;
     }
   }
 `;
