@@ -29,7 +29,9 @@ router.get('/', async (req, res, next) => {
       });
     }
 
-    const ids = getIdsFromUrl(response.data.webPages.value);
+    let ids = getIdsFromUrl(response.data.webPages.value);
+    ids = ids.filter((e) => (e != null));
+
     const data = await getAnswers(ids);
 
     data.forEach((d) => {
@@ -42,7 +44,7 @@ router.get('/', async (req, res, next) => {
       data,
     });
   } catch (e) {
-    console.log(e);
+    console.log('EXCEPTION: ', e);
     res.status(500);
     res.send({
       status: 'fail',
