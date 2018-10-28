@@ -1,5 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
-import { Map } from 'immutable';
+import { fromJS } from 'immutable';
 
 const GET_RESULT = 'app/search/GET_RESULT';
 const UPDATE_RESULT = 'app/search/UPDATE_RESULT';
@@ -9,7 +9,7 @@ export const constants = {
   UPDATE_RESULT,
 };
 
-export const getResultAction = createAction(GET_RESULT, () => ({}));
+export const getResultAction = createAction(GET_RESULT, (searchKey) => ({ searchKey }));
 export const updateResultAction = createAction(UPDATE_RESULT, (result) => ({ result }));
 
 export const actions = {
@@ -19,13 +19,11 @@ export const actions = {
 
 export const reducers = {
   [UPDATE_RESULT]: (state, { payload }) =>
-    state.merge({
-      ...payload,
-    }),
+    state.set('result', fromJS(payload.result)),
 }
 
 const initialState = () =>
-  Map({
+  fromJS({
     searchKey: '',
     result: [],
   })

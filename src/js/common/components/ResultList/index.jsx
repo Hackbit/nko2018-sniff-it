@@ -51,9 +51,10 @@ const Codes = ({ codes, points }) => {
 const Answers = ({ data }) => {
   const items = _.map(data, (answer, index) => {
     const codes = _.get(answer, 'code', []);
+    const points = _.get(answer, 'points') || '';
     return (
       <li key={index}>
-        <Codes codes={codes} points={123} />
+        <Codes codes={codes} points={points} />
       </li>
     );
   });
@@ -64,12 +65,19 @@ const Answers = ({ data }) => {
 
 class ResultList extends PureComponent {
   render() {
+    const { result } = this.props;
     return (
       <Fragment>
         <ResultListStyled>
           <article>
-            <h2>25 results</h2>
-            <Answers data={this.props.result} />
+            {result.length > 0 ? (
+              <Fragment>
+                <h2>Search results</h2>
+                <Answers data={this.props.result} />
+              </Fragment>
+            ) : (
+              <h2>No results</h2>
+            )}
           </article>
           <History />
         </ResultListStyled>
