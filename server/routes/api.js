@@ -30,7 +30,6 @@ router.get('/', async (req, res, next) => {
 
   const urls = response.data.webPages.value.map(((v) => v.url.match(/[0-9]+/)[0] || null));
 
-  res.end('test');
   try {
     const data = await axios.post(PUPPETEER_SERVICE, {
       urls,
