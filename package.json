@@ -97,7 +97,6 @@
     "lodash": "^4.17.11",
     "morgan": "~1.9.0",
     "prop-types": "^15.6.0",
-    "puppeteer": "^1.9.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",
@@ -111,7 +110,6 @@
     "redux-actions": "^2.3.0",
     "redux-saga": "^0.16.0",
     "reselect": "^3.0.1",
-    "scrape-it": "^5.1.0",
     "serve-favicon": "~2.4.5",
     "styled-components": "^4.0.2",
     "winston": "^3.1.0"
