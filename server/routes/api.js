@@ -16,12 +16,22 @@ router.get('/', async (req, res, next) => {
     });
   }
   
-  const offset = req.query.q.offset || 0;
+  const offset = req.query.offset || 0;
 
   try {
     const response = await searchBing(req.query.q, { offset });
 
-    const ids = getIdsFromUrl(response.data.webPages.value);
+    if (!response.data.webPages.value) {
+      res.status(200);
+      res.send({
+        status: 'success',
+        data: [],
+      });
+    }
+
+    let ids = getIdsFromUrl(response.data.webPages.value);
+    ids = ids.filter((e) => (e != null));
+
     const data = await getAnswers(ids);
 
     data.forEach((d) => {
@@ -34,6 +44,7 @@ router.get('/', async (req, res, next) => {
       data,
     });
   } catch (e) {
+    console.log('EXCEPTION: ', e);
     res.status(500);
     res.send({
       status: 'fail',

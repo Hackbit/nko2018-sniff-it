@@ -15,6 +15,10 @@ Installation is done using the `npm install` command
 $ npm install
 ```
 
+```bash
+$ npm run build && npm run server
+```
+
 ## Features
 
   * Sniff the web for popular code snippets
@@ -31,6 +35,11 @@ ft your perfect framework.
 ## Libraries / Resources
 
   * [React Redux Boilerplate](https://github.com/iroy2000/react-redux-boilerplate)
+
+## 3rd party services
+
+  * Bing Search API
+  * Stack Overflow API
 
 ## License
 

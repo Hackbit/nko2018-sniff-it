@@ -8,7 +8,7 @@ import { tomorrowNightEighties } from 'react-syntax-highlighter/styles/hljs';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import History from '../History';
-import { filteredResultSelector } from '../../../redux/selectors/searchSelector';
+import { filteredResultSelector, loadingSelector } from '../../../redux/selectors/searchSelector';
 import { ResultListStyled, SyntaxStyled, SnippetStyled, BarStyled } from './styles';
 
 const Bar = ({ points, code }) => {
@@ -51,7 +51,7 @@ const Codes = ({ codes, points }) => {
 const Answers = ({ data }) => {
   const items = _.map(data, (answer, index) => {
     const codes = _.get(answer, 'code', []);
-    const points = _.get(answer, 'points') || '';
+    const points = _.get(answer, 'points') || '0';
     return (
       <li key={index}>
         <Codes codes={codes} points={points} />
@@ -65,18 +65,24 @@ const Answers = ({ data }) => {
 
 class ResultList extends PureComponent {
   render() {
-    const { result } = this.props;
+    const { result, isLoading } = this.props;
     return (
       <Fragment>
         <ResultListStyled>
           <article>
-            {result.length > 0 ? (
-              <Fragment>
-                <h2>Search results</h2>
-                <Answers data={this.props.result} />
-              </Fragment>
+            {isLoading ? (
+              <h2>Sniffing ...</h2>
             ) : (
-              <h2>No results</h2>
+              <Fragment>
+                {result.length > 0 ? (
+                  <Fragment>
+                    <h2>Search results</h2>
+                    <Answers data={this.props.result} />
+                  </Fragment>
+                ) : (
+                  <h2>No results</h2>
+                )}
+              </Fragment>
             )}
           </article>
           <History />
@@ -88,10 +94,12 @@ class ResultList extends PureComponent {
 
 ResultList.propTypes = {
   result: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
   result: filteredResultSelector,
+  isLoading: loadingSelector,
 });
 
 function mapDispatchToProps(dispatch) {

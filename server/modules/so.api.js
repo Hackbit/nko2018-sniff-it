@@ -8,7 +8,7 @@ const getAnswers = async (ids) => {
   console.log(delimitedIds);
 
   const ANSWERS_URL = 
-    `${SO_HOST}/questions/${delimitedIds}/answers?pagesize=70&order=desc&sort=activity&site=stackoverflow&filter=!9Z(-wzfpy`;
+    `${SO_HOST}/questions/${delimitedIds}/answers?pagesize=70&order=desc&sort=activity&site=stackoverflow&filter=!9Z(-wzfpy&access_token=1v8tDB*Y8YRXwwDDKpjt5w))&key=BiJV)9s57xbGC2uC*UA6Gg((`;
   const mapping = [];
   
   ids.forEach((i) => mapping.push({ key: i, points: null, code: null, tags: null }));

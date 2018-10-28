@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
+import _ from 'lodash';
 import PropTypes from 'prop-types';
-import querystring from 'querystring';
 
-import { saveHistory } from '../../helpers';
 import { SearchBoxStyled } from './styles';
 
 class SearchBox extends PureComponent {
@@ -19,13 +18,11 @@ class SearchBox extends PureComponent {
   }
 
   onSubmit = () => {
-    const { searchKey, redirect } = this.props;
-    let query = this.searchBox.current.value;
+    const { searchKey, onSearch } = this.props;
+    const value = _.get(this.searchBox, 'current.value');
 
-    if (query && query !== searchKey) {
-      query = querystring.stringify({ q: query });
-      redirect(`/search?${query}`);
-      saveHistory(searchKey);
+    if (value && value !== searchKey) {
+      onSearch(value);
     }
   }
 
@@ -50,7 +47,7 @@ class SearchBox extends PureComponent {
 
 SearchBox.propTypes = {
   searchKey: PropTypes.string.isRequired,
-  redirect: PropTypes.func.isRequired,
+  onSearch: PropTypes.func.isRequired,
 }
 
 export default SearchBox;

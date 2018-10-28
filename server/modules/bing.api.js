@@ -7,7 +7,7 @@ const searchBing = async (query, options) => {
   const q = `site:stackoverflow.com ${query}`;
   const { offset } = options;
   const url = `${BING_SEARCH_API_URL}?q=${q}&offset=${offset}`;
-  
+
   return await axios.get(url, {
     headers: {
       'Ocp-Apim-Subscription-Key': API_KEY,

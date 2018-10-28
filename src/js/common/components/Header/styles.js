@@ -13,6 +13,19 @@ export const HeaderStyled = styled.header`
     width: 199px;
     height: 66px;
   }
+  a.vote {
+    background: none;
+    color: #fff;
+    text-decoration: none;
+    position: absolute;
+    right: 0;
+    font-size: 16px;
+    padding-top: 25px;
+    
+  }
+  a.vote:hover {
+    text-decoration:underline;
+  }
   a.home {
     background: url(${homeLogoUrl}) no-repeat right top;
     background-size: cover;
