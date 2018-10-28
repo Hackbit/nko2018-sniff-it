@@ -6,7 +6,6 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import querystring from 'querystring';
 
-import { saveHistory } from '../../helpers';
 import SearchBox from '../HeaderSearchBox';
 import { HeaderStyled } from './styles';
 import { parseQueryName } from '../../utilities';
@@ -26,7 +25,6 @@ class Header extends PureComponent {
     const query = querystring.stringify({ q: value });
 
     history.push(`/search?${query}`);
-    saveHistory(value);
     getResult(value);
   }
 
