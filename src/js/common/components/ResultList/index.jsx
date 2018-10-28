@@ -6,10 +6,13 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { tomorrowNightEighties } from 'react-syntax-highlighter/styles/hljs';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { withRouter } from 'react-router-dom';
 
 import History from '../History';
-import { filteredResultSelector, loadingSelector } from '../../../redux/selectors/searchSelector';
-import { ResultListStyled, SyntaxStyled, SnippetStyled, BarStyled } from './styles';
+import { filteredResultSelector, loadingSelector, offsetSelector } from '../../../redux/selectors/searchSelector';
+import { ResultListStyled, SyntaxStyled, SnippetStyled, BarStyled, ShowMoreStyled } from './styles';
+import { getResultAction } from '../../../redux/modules/search';
+import { parseQueryName } from '../../utilities';
 
 const Bar = ({ points, code }) => {
   return (
@@ -64,13 +67,23 @@ const Answers = ({ data }) => {
 };
 
 class ResultList extends PureComponent {
+  onShowMore = (event) => {
+    event.preventDefault();
+    const { getResult, location, offset } = this.props;
+    const { search } = location;
+    const searchKey = parseQueryName(search, 'q') || '';
+
+    getResult(searchKey, offset + 1);
+  }
+
   render() {
-    const { result, isLoading } = this.props;
+    const { result, isLoading, offset } = this.props;
+    const showMoreLabel = isLoading && offset > 0 ? 'Sniffing' : 'Show More';
     return (
       <Fragment>
         <ResultListStyled>
           <article>
-            {isLoading ? (
+            {offset === 0 && isLoading ? (
               <h2>Sniffing ...</h2>
             ) : (
               <Fragment>
@@ -78,6 +91,12 @@ class ResultList extends PureComponent {
                   <Fragment>
                     <h2>Search results</h2>
                     <Answers data={this.props.result} />
+                    <ShowMoreStyled
+                      href="/"
+                      onClick={this.onShowMore}
+                    >
+                      {showMoreLabel}
+                    </ShowMoreStyled>
                   </Fragment>
                 ) : (
                   <h2>No results</h2>
@@ -95,18 +114,23 @@ class ResultList extends PureComponent {
 ResultList.propTypes = {
   result: PropTypes.array.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  getResult: PropTypes.func.isRequired,
+  offset: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
   result: filteredResultSelector,
   isLoading: loadingSelector,
+  offset: offsetSelector,
 });
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({}, dispatch);
+  return bindActionCreators({
+    getResult: getResultAction,
+  }, dispatch);
 }
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-export default compose(withConnect)(ResultList);
+export default compose(withConnect)(withRouter(ResultList));
 

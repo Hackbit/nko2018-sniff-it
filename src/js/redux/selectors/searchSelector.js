@@ -18,6 +18,11 @@ export const historySelector = createSelector(
   (payload) => payload.get('history').toJSON()
 );
 
+export const offsetSelector = createSelector(
+  searchDataSelector,
+  (payload) => payload.get('offset')
+);
+
 export const filteredResultSelector = createSelector(
   resultSelector,
   (result) => {
