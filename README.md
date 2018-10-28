@@ -15,6 +15,10 @@ Installation is done using the `npm install` command
 $ npm install
 ```
 
+```bash
+$ npm run build && npm run server
+```
+
 ## Features
 
   * Sniff the web for popular code snippets
