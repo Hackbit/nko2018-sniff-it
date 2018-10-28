@@ -13,6 +13,11 @@ export const loadingSelector = createSelector(
   (payload) => payload.get('isLoading')
 );
 
+export const historySelector = createSelector(
+  searchDataSelector,
+  (payload) => payload.get('history').toJSON()
+);
+
 export const filteredResultSelector = createSelector(
   resultSelector,
   (result) => {

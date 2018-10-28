@@ -16,12 +16,11 @@ const Bar = ({ points, code }) => {
     <BarStyled>
       <section>
         <CopyToClipboard text={code}>
-          <div className='copy'>
+          <div className="copy">
             <i className="far fa-copy" />
             <small>Copy</small>
           </div>
         </CopyToClipboard>
-        
       </section>
       <section>
         <i className="far fa-heart" />
@@ -50,11 +49,12 @@ const Codes = ({ codes, points }) => {
 
 const Answers = ({ data }) => {
   const items = _.map(data, (answer, index) => {
-    const codes = _.get(answer, 'code', []);
+    let codes = _.get(answer, 'code', []);
     const points = _.get(answer, 'points') || '0';
+
     return (
       <li key={index}>
-        <Codes codes={codes} points={points} />
+        <Codes codes={[codes.join('\n')]} points={points} />
       </li>
     );
   });

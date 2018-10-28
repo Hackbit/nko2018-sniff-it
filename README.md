@@ -15,8 +15,14 @@ Installation is done using the `npm install` command
 $ npm install
 ```
 
+Running the app
+
 ```bash
-$ npm run build && npm run server
+$ npm run build
+```
+
+```bash
+$ npm run server
 ```
 
 ## Features
@@ -30,7 +36,6 @@ $ npm run build && npm run server
   * Step 2: Review The Search Results
 
       After the searched, the app will show list of results. The results are sorted by popularity.
-ft your perfect framework.
 
 ## Libraries / Resources
 
@@ -40,6 +45,10 @@ ft your perfect framework.
 
   * Bing Search API
   * Stack Overflow API
+
+## Vote
+
+  * [CLICK TO VOTE FOR THIS APP](https://www.nodeknockout.com/entries/55-hero_aku/vote)
 
 ## License
 
