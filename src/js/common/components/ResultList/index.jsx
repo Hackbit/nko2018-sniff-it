@@ -16,12 +16,11 @@ const Bar = ({ points, code }) => {
     <BarStyled>
       <section>
         <CopyToClipboard text={code}>
-          <div className='copy'>
+          <div className="copy">
             <i className="far fa-copy" />
             <small>Copy</small>
           </div>
         </CopyToClipboard>
-        
       </section>
       <section>
         <i className="far fa-heart" />

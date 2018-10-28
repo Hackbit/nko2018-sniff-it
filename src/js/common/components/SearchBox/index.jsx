@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom';
 import querystring from 'querystring';
 
 import { GlobalStyle, SearchBoxStyled } from './styles';
-import { saveHistory } from '../../helpers';
 
 class SearchBox extends PureComponent {
   constructor(props) {
@@ -31,7 +30,6 @@ class SearchBox extends PureComponent {
       const path = `/search?${query}`;
 
       history.push(path);
-      saveHistory(searchKey);
     }
   }
 
