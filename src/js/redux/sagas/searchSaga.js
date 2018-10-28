@@ -1,12 +1,18 @@
-import { put, fork, takeLatest } from 'redux-saga/effects';
+import axios from 'axios';
+import _ from 'lodash';
+import querystring from 'querystring';
+import { call, put, fork, takeLatest } from 'redux-saga/effects';
 import { constants, updateResultAction } from '../modules/search';
 
 const { GET_RESULT } = constants;
 
-const data = require('./data.json');
+const searchApi = (q) => {
+  return axios.get(`${__CONFIG__.apiUrl}?${querystring.stringify({ q })}`);
+}
 
-export function* getResult() {
-  yield put(updateResultAction(data));
+export function* getResult({ payload }) {
+  const resp = yield call(searchApi, payload.searchKey);
+  yield put(updateResultAction(_.get(resp, 'data.data', [])));
 }
 
 function* watchGetResult() {

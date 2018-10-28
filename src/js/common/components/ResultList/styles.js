@@ -9,6 +9,7 @@ export const ResultListStyled = styled.div`
     h2 {
       color: #FFFFFF;
       opacity: 0.8;
+      width: 640px;
     }
     ul {
       list-style: none;
@@ -41,6 +42,13 @@ export const BarStyled = styled.div`
     small {
       font-size: 10px;
       font-weight: bold;
+    }
+    .copy {
+      cursor: pointer;
+      color: #9e9ea0;
+    }
+    .copy:hover {
+      color: #fff;
     }
   }
 `;
