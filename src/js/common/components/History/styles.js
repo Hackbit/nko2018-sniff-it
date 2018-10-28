@@ -1,38 +1,27 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
-import bgUrl from '../../../../assets/images/bg_allpages.png';
-
-export const GlobalStyle = createGlobalStyle`
-  html { 
-    background: url(${bgUrl}) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
-`
-
-export const ResultListStyled = styled.div`
-  display: flex;
-  justify-content: center;
-
-  article {
-    width: 50%;
-    margin: 20px 0;
-    h2 {
-      color: #FFFFFF;
+export const HistoryStyled = styled.div`
+  min-width: 330px;
+  section {
+    background-color: #231D3D;
+    color: #FFFFFF;
+    margin: 88px 0 0 40px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 2px;
+    opacity: 0.8;
+    h3 {
       font-weight: lighter;
-      opacity: 0.8;
+      padding: 20px 20px 15px;
+      margin: 0;
+      border-bottom: 1px solid #332E4B;
     }
-  }
-  @media all and (max-width: 768px) {
-    article {
-      width: 80%;
+    ul {
+      list-style-type: square;
+      padding-bottom: 40px;
     }
-  }
-  @media all and (max-width: 480px) {
-    article {
-      width: 95%;
+    li {
+      margin-bottom: 10px;
+      font-size: 15px;
     }
   }
 `;
