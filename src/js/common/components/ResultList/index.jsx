@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { tomorrowNightEighties } from 'react-syntax-highlighter/styles/hljs';
 
+import History from '../History';
 import { filteredResultSelector } from '../../../redux/selectors/searchSelector';
 import { ResultListStyled, SyntaxStyled, SnippetStyled, BarStyled } from './styles';
 
@@ -64,6 +65,7 @@ class ResultList extends PureComponent {
             <h2>25 results</h2>
             <Answers data={this.props.result} />
           </article>
+          <History />
         </ResultListStyled>
       </Fragment>
     );
