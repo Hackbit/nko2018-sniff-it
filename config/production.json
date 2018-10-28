@@ -2,6 +2,7 @@
   "env": "production",
   "publicPath": "/",
   "app": {
-    "logLevel": "warn"
+    "logLevel": "warn",
+    "apiUrl": "http://sniff-it.herokuapp.com/api"
   }
 }
