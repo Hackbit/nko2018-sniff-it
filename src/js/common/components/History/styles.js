@@ -17,11 +17,16 @@ export const HistoryStyled = styled.div`
     }
     ul {
       list-style-type: square;
-      padding-bottom: 40px;
+      list-style-color: #C822FF;
+      color: #C822FF;
     }
     li {
       margin-bottom: 10px;
       font-size: 15px;
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
     }
   }
 `;

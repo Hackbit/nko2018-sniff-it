@@ -1,6 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
 import { GlobalStyle, SearchBoxStyled } from './styles';
+import { saveHistory } from '../../helpers';
 
 class SearchBox extends PureComponent {
   constructor(props) {
@@ -24,6 +25,7 @@ class SearchBox extends PureComponent {
         pathname: '/search',
         search: `?q=${encodeURIComponent(query.trim())}`,
       });
+      saveHistory(query);
     }
   }
 
