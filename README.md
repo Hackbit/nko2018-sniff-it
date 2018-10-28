@@ -32,6 +32,11 @@ ft your perfect framework.
 
   * [React Redux Boilerplate](https://github.com/iroy2000/react-redux-boilerplate)
 
+## 3rd party services
+
+  * Bing Search API
+  * Stack Overflow API
+
 ## License
 
   [MIT](LICENSE)
