@@ -46,6 +46,7 @@ class Header extends PureComponent {
             onSearch={this.onSearch}
           />
         }
+        <a className="vote" href="https://www.nodeknockout.com/entries/55-hero_aku/vote" target="_blank" rel="noopener noreferrer">Vote For Us</a>
       </HeaderStyled>
     );
   }
