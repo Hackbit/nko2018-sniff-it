@@ -1,16 +1,18 @@
-@import "configs/color";
-@import "configs/font-faces";
+* {
+  font-family: 'Karla', sans-serif;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: auto;
+}
+
+html {
+  background-color: #1C112E;
+  font-family: 'Karla', sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
 
 body {
   margin: 0;
-}
-
-.container {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 16px;
-}
-
-h1, h2 {
-  /* This is how you use custom fonts */
-  font-family: YourFavoriteFont;
 }
