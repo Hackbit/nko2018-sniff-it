@@ -21,7 +21,7 @@ router.get('/', async (req, res, next) => {
   try {
     const response = await searchBing(req.query.q, { offset });
 
-    if (!response.data.webPages) {
+    if (!response.data.webPages.value) {
       res.status(200);
       res.send({
         status: 'success',
@@ -42,6 +42,7 @@ router.get('/', async (req, res, next) => {
       data,
     });
   } catch (e) {
+    console.log(e);
     res.status(500);
     res.send({
       status: 'fail',
