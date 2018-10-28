@@ -50,11 +50,12 @@ const Codes = ({ codes, points }) => {
 
 const Answers = ({ data }) => {
   const items = _.map(data, (answer, index) => {
-    const codes = _.get(answer, 'code', []);
+    let codes = _.get(answer, 'code', []);
     const points = _.get(answer, 'points') || '0';
+
     return (
       <li key={index}>
-        <Codes codes={codes} points={points} />
+        <Codes codes={[codes.join('\n')]} points={points} />
       </li>
     );
   });
