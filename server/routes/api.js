@@ -16,10 +16,19 @@ router.get('/', async (req, res, next) => {
     });
   }
   
-  const offset = req.query.q.offset || 0;
+  const offset = req.query.offset || 0;
 
   try {
     const response = await searchBing(req.query.q, { offset });
+    console.log(response.data);
+
+    if (response.data.webPages) {
+      res.status(200);
+      res.send({
+        status: 'success',
+        data: [],
+      });
+    }
 
     const ids = getIdsFromUrl(response.data.webPages.value);
     const data = await getAnswers(ids);
