@@ -92,6 +92,7 @@
     "cors": "^2.8.4",
     "debug": "~2.6.9",
     "express": "^4.16.4",
+    "express-rate-limit": "^3.2.1",
     "history": "^4.7.2",
     "immutable": "^3.8.2",
     "jade": "~1.11.0",

@@ -4,10 +4,18 @@ const path = require('path')
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const rateLimit = require('express-rate-limit');
 
 const api = require('./routes/api');
 
 const app = express();
+
+app.enable('trust proxy'); // only if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
+
+const apiLimiter = rateLimit({
+  windowMs: 60 * 1000, //
+  max: 20,
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'docroot')));
 
-app.use('/api', api);
+app.use('/api', apiLimiter, api);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
