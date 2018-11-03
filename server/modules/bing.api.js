@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const API_KEY = '616fa7cc408843cdaee31d0f78fa3a18';
+const API_KEY = '08ac847628be460eaf25fb7d25790427';
 const BING_SEARCH_API_URL = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
 
 const searchBing = async (query, options) => {
